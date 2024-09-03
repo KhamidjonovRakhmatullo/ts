@@ -1,40 +1,42 @@
 "use strict";
-// console.log("Bismillah");
-// throw new Error ("Some Error")
-// let a = 12
-// a = "str"  x
-// a = true  x
-// a = {}  x
-// a = 12 + 12
-let a = 33; // 23, 1.0021
-a = 11;
-// let b: string;
-// b = true;  x
-// b = 43;  x
-let b = "str"; // "", '', ``
-b = "text";
-let c = true; // true or false
-// c = function() {} x
-c = true;
-// let d = null
-let d = null; // null
-// d = undefined  x
-// let e = undefined
-let e = undefined; //undefined
-// let f = {}
-// let f : object = {}
-// f = 12  xx
-// f = {name : "Me"}
-// f.
-let f = { name: "Me" };
-// f.name = "You"
-let g;
-g = 12;
-g = "str";
-g = true;
-g = { name: "Me" };
-g = function () { };
-g = [];
-g = null;
-g = undefined;
+//// Typescript => functions, signature, functions, functions overloads
+////declaration function
+// function pow(x, y){
+//     return x ** y
+// }
+function pow(x, y) {
+    return x ** y;
+}
+function powString(x, y) {
+    return `${x} ** ${y} = ${x ** y}`;
+}
+console.log(powString(2, 3));
+////arrow function
+// const add = (x, y) => x + y
+const add = (x, y) => x + y;
+////void function
+function log(x) {
+    console.log(x);
+}
+////never function
+function someFunc(str) {
+    throw new Error(str);
+}
+////signature function
+let c;
+// c = function(a: number, b: number): number{
+//     return a + b
+// }  x
+c = function (a, b) {
+    return `${b} : ${a}`;
+};
+function overloadFunc(x, y) {
+    if (typeof x === "number" && typeof y === "number") {
+        return x + y;
+    }
+    else {
+        return `${x} -- ${y}`;
+    }
+}
+console.log(overloadFunc("Javob", 3));
 //# sourceMappingURL=index.js.map

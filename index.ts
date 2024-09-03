@@ -1,50 +1,59 @@
-// console.log("Bismillah");
+//// Typescript => functions, signature, functions, functions overloads
 
-// throw new Error ("Some Error")
 
-// let a = 12
+////declaration function
 
-// a = "str"  x
-// a = true  x
-// a = {}  x
-// a = 12 + 12
+// function pow(x, y){
+//     return x ** y
+// }
+function pow(x : number, y: number) :number{
+    return x ** y
+}
+function powString(x : number, y: number) :string{
+    return `${x} ** ${y} = ${x**y}`
+}
+console.log(powString(2, 3));
 
-let a: number = 33; // 23, 1.0021
-a = 11;
 
-// let b: string;
-// b = true;  x
-// b = 43;  x
 
-let b: string = "str"; // "", '', ``
-b = "text";
+////arrow function
 
-let c: boolean = true; // true or false
-// c = function() {} x
-c = true;
+// const add = (x, y) => x + y
+const add = (x : number, y: number): number => x + y  
 
-// let d = null
-let d: null = null; // null
-// d = undefined  x
+////void function
+function log( x: number): void {
+    console.log(x)
+}
 
-// let e = undefined
-let e: undefined = undefined; //undefined
+////never function
+function someFunc(str: string): never{
+    throw new Error(str)
+}
 
-// let f = {}
-// let f : object = {}
-// f = 12  xx
-// f = {name : "Me"}
-// f.
+////signature function
+let c: (x: number, y: string)=> string
 
-let f: { name: string } = { name: "Me" };
-// f.name = "You"
+// c = function(a: number, b: number): number{
+//     return a + b
+// }  x
 
-let g: any;
-g = 12;
-g = "str";
-g = true;
-g = { name: "Me" };
-g = function () {};
-g = [];
-g = null;
-g = undefined;
+c = function(a: number, b: string): string{
+    return `${b} : ${a}`
+}
+// console.log(c(2, `Jabob`))
+
+////overload function
+
+function overloadFunc(x: number, y: number): number
+function overloadFunc(x: string, y: number): string
+function overloadFunc(x: any, y: any): any{
+    if(typeof x === "number" && typeof y === "number"){
+        return x + y
+    }else{
+        return `${x} -- ${y}`
+    }
+}
+console.log(overloadFunc("Javob", 3))
+
+
